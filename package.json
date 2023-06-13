@@ -1,0 +1,45 @@
+```json
+{
+  "name": "customizable-image-carousel",
+  "version": "1.0.0",
+  "description": "An interactive image carousel component built purely with vanilla JavaScript, featuring navigation buttons, pagination dots, and automatic sliding functionality. Part of a larger interconnected system including Canvas Drawing Board, Text-Based Adventure Game, and In-Browser Code Editor.",
+  "main": "src/js/app.js",
+  "private": true,
+  "scripts": {
+    "start": "live-server --port=3000 --host=0.0.0.0 --open=index.html",
+    "dev": "npm start",
+    "lint": "eslint \"{src,test}/**/*.js\"",
+    "lint:fix": "eslint \"{src,test}/**/*.js\" --fix",
+    "format": "prettier --write \"{src,test}/**/*.{js,html,css,json,md}\"",
+    "check-format": "prettier --check \"{src,test}/**/*.{js,html,css,json,md}\"",
+    "test": "echo \"No tests specified for this project yet.\" && exit 0",
+    "build": "echo \"No build step required for vanilla JS, just serve static files.\" && exit 0"
+  },
+  "keywords": [
+    "carousel",
+    "image-carousel",
+    "javascript",
+    "vanilla-js",
+    "frontend",
+    "component",
+    "interactive",
+    "web-component",
+    "microservice-suite",
+    "canvas-drawing-board",
+    "text-adventure-game",
+    "in-browser-code-editor"
+  ],
+  "author": "Your Name/Organization",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "live-server": "^1.2.2",
+    "prettier": "^3.2.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+```

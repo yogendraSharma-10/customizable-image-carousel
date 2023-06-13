@@ -1,0 +1,35 @@
+# Node.js and npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# Logs
+logs/
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build artifacts (if a build step is introduced later, e.g., for minification or bundling)
+# dist/
+# build/
+
+# Coverage reports
+coverage/
+
+# Miscellaneous
+*.bak
+*~
+*.swp
+*.swo
