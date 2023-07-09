@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Image Carousel</title>
+
+    <!-- Favicon (optional, but good practice) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖼️</text></svg>">
+
+    <!-- Global styles for the application -->
+    <link rel="stylesheet" href="src/css/style.css">
+    <!-- Specific styles for the carousel component -->
+    <link rel="stylesheet" href="src/css/carousel.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Interactive Image Carousel</h1>
+        <p>A vanilla JavaScript component for dynamic image display.</p>
+    </header>
+
+    <main class="app-main">
+        <section class="carousel-showcase">
+            <h2>Our Featured Carousel</h2>
+            <p>Experience the smooth transitions and intuitive navigation of our custom-built image carousel.</p>
+
+            <!--
+                The main container for the carousel component.
+                The 'data-carousel-id' attribute can be used to uniquely identify this carousel
+                if multiple instances are present on the same page, allowing for specific
+                configuration via JavaScript.
+            -->
+            <div id="mainCarousel" class="carousel-container"
+                 data-carousel-id="heroCarousel"
+                 data-autoplay="true"
+                 data-interval="3000"
+                 data-loop="true">
+
+                <!--
+                    The container for the individual slides.
+                    Images placed directly inside this div will be treated as slides.
+                    The 'active' class on an image indicates the currently visible slide.
+                -->
+                <div class="carousel-slides">
+                    <img src="src/assets/images/image1.jpg" alt="Scenic view of mountains and lake" class="carousel-slide active">
+                    <img src="src/assets/images/image2.jpg" alt="Lush green forest with sunlight filtering through" class="carousel-slide">
+                    <!-- Add more placeholder images for a richer demo -->
+                    <img src="https://picsum.photos/id/237/800/450" alt="A cute dog looking up" class="carousel-slide">
+                    <img src="https://picsum.photos/id/1084/800/450" alt="Snowy mountain peaks at sunset" class="carousel-slide">
+                    <img src="https://picsum.photos/id/1025/800/450" alt="A black cat with striking green eyes" class="carousel-slide">
+                </div>
+
+                <!--
+                    Navigation buttons for previous and next slides.
+                    These buttons will be targeted by the carousel.js script.
+                -->
+                <button class="carousel-button prev" aria-label="Previous slide">❮</button>
+                <button class="carousel-button next" aria-label="Next slide">❯</button>
+
+                <!--
+                    Container for pagination dots.
+                    The dots will be dynamically generated and managed by the carousel.js script
+                    based on the number of slides.
+                -->
+                <div class="carousel-pagination" role="tablist" aria-label="Carousel pagination">
+                    <!-- Pagination dots will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="features-overview">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Pure Vanilla JavaScript implementation.</li>
+                <li>Responsive design for various screen sizes.</li>
+                <li>Navigation with previous/next buttons.</li>
+                <li>Pagination dots for direct slide access.</li>
+                <li>Automatic sliding with customizable interval.</li>
+                <li>Looping functionality for continuous display.</li>
+                <li>Accessible with ARIA attributes.</li>
+            </ul>
+        </section>
+
+        <!--
+            Cross-Project Context:
+            Simulating an interconnected system by referencing other services.
+            In a real microservice architecture, these might be links to other
+            applications, APIs, or documentation portals.
+        -->
+        <section class="related-projects">
+            <h2>Discover More from Our Ecosystem</h2>
+            <p>This Image Carousel is part of a suite of interactive web components:</p>
+            <ul>
+                <li><a href="https://example.com/canvas-drawing-board" target="_blank" rel="noopener noreferrer">Canvas Drawing Board</a>: Unleash your creativity with our interactive drawing application.</li>
+                <li><a href="https://example.com/text-adventure-game" target="_blank" rel="noopener noreferrer">Text-Based Adventure Game</a>: Embark on an epic journey through a world of text.</li>
+                <li><a href="https://example.com/in-browser-code-editor" target="_blank" rel="noopener noreferrer">In-Browser Code Editor</a>: Write and execute code directly in your browser.</li>
+            </ul>
+            <p>Explore how these components can be integrated to build rich, dynamic web experiences.</p>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; <span id="currentYear"></span> Customizable Image Carousel Project. All rights reserved.</p>
+        <p>Built with Vanilla JavaScript, HTML, and CSS.</p>
+    </footer>
+
+    <!--
+        JavaScript files are loaded at the end of the body for performance.
+        The 'defer' attribute ensures that the HTML is fully parsed before
+        the scripts execute, preventing render-blocking.
+
+        carousel.js defines the Carousel class/function.
+        app.js initializes and configures the carousel instances on the page.
+    -->
+    <script src="src/js/carousel.js" defer></script>
+    <script src="src/js/app.js" defer></script>
+    <script>
+        // Dynamically set the current year in the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
