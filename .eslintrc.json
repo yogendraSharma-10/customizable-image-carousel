@@ -1,0 +1,162 @@
+```json
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // Enforce 2-space indentation
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    // Enforce Unix line endings
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    // Enforce single quotes for strings
+    "quotes": [
+      "error",
+      "single"
+    ],
+    // Enforce semicolons at the end of statements
+    "semi": [
+      "error",
+      "always"
+    ],
+    // Disallow unused variables, but allow arguments prefixed with underscore
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    // Warn about console.log statements (should be removed in production)
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ],
+    // Require `const` or `let` instead of `var`
+    "no-var": "error",
+    // Prefer `const` over `let` for variables that are never reassigned
+    "prefer-const": "error",
+    // Enforce strict equality (`===` and `!==`)
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    // Require curly braces for all control statements
+    "curly": [
+      "error",
+      "all"
+    ],
+    // Disallow trailing whitespace at the end of lines
+    "no-trailing-spaces": "error",
+    // Enforce consistent comma style
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    // Enforce consistent spacing inside object curly braces
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    // Enforce consistent spacing inside array brackets
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+    // Disallow spaces inside parentheses
+    "space-in-parens": [
+      "error",
+      "never"
+    ],
+    // Enforce consistent spacing before function parentheses
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    // Enforce consistent spacing before and after keywords
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    // Enforce consistent spacing before and after arrow functions' arrows
+    "arrow-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    // Disallow multiple empty lines
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1,
+        "maxEOF": 0,
+        "maxBOF": 0
+      }
+    ],
+    // Enforce a maximum line length (e.g., 120 characters), ignoring comments and strings
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+    // Disallow variable declarations from shadowing variables declared in the outer scope
+    "no-shadow": "error",
+    // Disallow the use of variables/functions before they are defined
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true
+      }
+    ],
+    // Disallow the use of undeclared variables unless mentioned in `/* global ... */` comments
+    "no-undef": "error",
+    // Disallow the use of `alert`, `confirm`, and `prompt`
+    "no-alert": "error",
+    // Disallow the use of `debugger`
+    "no-debugger": "error",
+    // Disallow unnecessary semicolons
+    "no-extra-semi": "error",
+    // Disallow unreachable code after `return`, `throw`, `continue`, and `break` statements
+    "no-unreachable": "error"
+  }
+}
+```
