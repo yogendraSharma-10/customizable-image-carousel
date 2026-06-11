@@ -1,0 +1,212 @@
+/*
+ * src/css/style.css
+ *
+ * Global styles for the Customizable Image Carousel project.
+ * This file contains general resets, typography, and base layout styles
+ * that apply across the entire application, ensuring a consistent look and feel.
+ * Carousel-specific styles are located in src/css/carousel.css.
+ */
+
+/*
+ * 1. CSS Reset & Box Sizing
+ *    A simple reset to ensure consistent styling across browsers.
+ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * 2. Root Variables
+ *    Define global CSS custom properties for colors, fonts, and spacing.
+ *    These can be easily overridden or extended for theming.
+ */
+:root {
+    /* Colors */
+    --primary-color: #007bff; /* Blue for accents, buttons */
+    --secondary-color: #6c757d; /* Gray for secondary text, borders */
+    --background-color: #f8f9fa; /* Light gray background */
+    --text-color: #343a40; /* Dark gray for main text */
+    --light-text-color: #ffffff; /* White for text on dark backgrounds */
+    --border-color: #dee2e6; /* Lighter gray for borders */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+
+    /* Typography */
+    --font-family-sans-serif: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-size-base: 1rem; /* 16px */
+    --line-height-base: 1.6;
+    --heading-font-weight: 700;
+    --body-font-weight: 400;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem;  /* 8px */
+    --spacing-md: 1rem;    /* 16px */
+    --spacing-lg: 1.5rem;  /* 24px */
+    --spacing-xl: 2rem;    /* 32px */
+
+    /* Border Radius */
+    --border-radius-sm: 0.25rem; /* 4px */
+    --border-radius-md: 0.5rem;  /* 8px */
+}
+
+/*
+ * 3. Base HTML & Body Styles
+ *    Set global font, background, and text colors.
+ */
+html {
+    font-size: var(--font-size-base); /* Base font size for rem units */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: var(--font-family-sans-serif);
+    font-weight: var(--body-font-weight);
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    -webkit-font-smoothing: antialiased; /* Improve font rendering on macOS/iOS */
+    -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS/iOS */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+ * 4. Typography
+ *    Basic styles for headings, paragraphs, and links.
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--heading-font-weight);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color);
+}
+
+h1 { font-size: 2.5rem; } /* ~40px */
+h2 { font-size: 2rem; }   /* ~32px */
+h3 { font-size: 1.75rem; }/* ~28px */
+h4 { font-size: 1.5rem; } /* ~24px */
+h5 { font-size: 1.25rem; }/* ~20px */
+h6 { font-size: 1rem; }   /* ~16px */
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+    color: var(--primary-color); /* Darker shade or same for consistency */
+    text-decoration: underline;
+    outline: none; /* Remove default focus outline, replaced by custom focus styles */
+}
+
+/*
+ * 5. Main Layout Container
+ *    A generic container to center content and apply max-width.
+ */
+.container {
+    max-width: 1200px; /* Max width for content */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    width: 100%;
+}
+
+/*
+ * 6. Utility Classes
+ *    Helper classes for common styling needs.
+ */
+.text-center {
+    text-align: center;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*
+ * 7. Accessibility Enhancements
+ *    Custom focus styles for interactive elements.
+ */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+}
+
+/*
+ * 8. Header and Footer (Optional, but good practice for a full page)
+ *    Basic styling for a potential header and footer.
+ */
+header {
+    background-color: var(--light-text-color);
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-color) 0px 2px 4px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0;
+    color: var(--primary-color);
+}
+
+main {
+    flex-grow: 1; /* Allows main content to take up available space */
+    padding: var(--spacing-xl) 0;
+}
+
+footer {
+    background-color: var(--text-color);
+    color: var(--light-text-color);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+footer p {
+    margin-bottom: 0;
+    font-size: 0.875rem; /* Smaller text for footer */
+}
+
+/*
+ * 9. Integration with other services (Conceptual)
+ *    While not directly styling, this section conceptually notes where
+ *    styles might be influenced by or shared with other projects.
+ *    For example, a shared design system or theme variables.
+ */
+/*
+.canvas-drawing-board-integration {
+    // Styles specific to how the canvas drawing board might be embedded or styled
+    // within this application, e.g., a specific border or shadow for its container.
+}
+
+.text-adventure-game-ui {
+    // If this carousel were to display game assets or be part of a game UI,
+    // specific font or color overrides might be applied here.
+}
+
+.code-editor-theme-toggle {
+    // If a theme toggle from the code editor project were integrated,
+    // this section might define variables or classes for theme switching.
+}
+*/
