@@ -1,0 +1,61 @@
+```json
+{
+  "compilerOptions": {
+    // Specifies the JavaScript language version for emitted JavaScript and for type checking.
+    // "es2020" is a good balance for modern browser support without requiring excessive polyfills.
+    "target": "es2020",
+
+    // Specifies the module code generation. "esnext" is suitable for modern browsers and tooling,
+    // even if explicit ES module imports/exports aren't heavily used in the main app.js,
+    // it helps with module resolution for potential future expansions or library usage.
+    "module": "esnext",
+
+    // Determines how modules are resolved. "node" is a common and robust strategy,
+    // even for browser-based projects, as it aligns with how many tools (like bundlers)
+    // resolve modules.
+    "moduleResolution": "node",
+
+    // Enable JavaScript files to be type-checked. This is crucial for getting
+    // IntelliSense and basic type safety in vanilla JavaScript files.
+    "checkJs": true,
+
+    // Enable all strict type-checking options. This promotes cleaner and more robust code.
+    "strict": true,
+
+    // Base directory to resolve non-relative module names.
+    // Setting it to "." allows for absolute imports relative to the project root,
+    // e.g., `import { Carousel } from 'src/js/carousel';` if configured with paths.
+    "baseUrl": ".",
+
+    // List of library files to be included in the compilation.
+    // "dom" and "dom.iterable" provide types for browser APIs (e.g., document, HTMLElement).
+    // "esnext" includes types for the latest ECMAScript features.
+    "lib": ["dom", "dom.iterable", "esnext"],
+
+    // Ensure that casing is consistent in file names. This helps prevent issues
+    // on case-insensitive file systems when working with case-sensitive systems.
+    "forceConsistentCasingInFileNames": true,
+
+    // Skip type checking of all declaration files (*.d.ts).
+    // Useful for speeding up compilation and avoiding issues with third-party library types.
+    "skipLibCheck": true,
+
+    // Allow default imports from modules with no default export. This is often used
+    // with CommonJS modules that are imported as ES modules.
+    "allowSyntheticDefaultImports": true,
+
+    // Enables a full range of compatibility flags for interop between CommonJS and ES Modules.
+    "esModuleInterop": true
+  },
+  // Specifies which files to include in the program.
+  // Here, we include all JavaScript files within the 'src' directory and its subdirectories.
+  "include": [
+    "src/**/*.js"
+  ],
+  // Specifies which files to exclude from the program.
+  // Typically, 'node_modules' is excluded to avoid processing external dependencies.
+  "exclude": [
+    "node_modules"
+  ]
+}
+```
