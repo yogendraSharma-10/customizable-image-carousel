@@ -1,0 +1,211 @@
+/*
+ * Customizable Image Carousel - Carousel Specific Styles
+ *
+ * This file contains the core CSS for the interactive image carousel component.
+ * It defines the layout, appearance, and transitions for the carousel container,
+ * slides, navigation buttons, and pagination dots.
+ *
+ * Tech Stack: HTML, CSS, JavaScript
+ *
+ * Author: Your Name/Company
+ * Date: [Current Date]
+ */
+
+/* --- Carousel Container --- */
+.carousel {
+    position: relative; /* Allows absolute positioning of controls */
+    width: 100%;
+    max-width: 800px; /* Max width for the carousel */
+    margin: 40px auto; /* Center the carousel on the page */
+    overflow: hidden; /* Hide parts of slides that are off-screen */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    aspect-ratio: 16 / 9; /* Maintain a common aspect ratio for the carousel */
+}
+
+/* --- Carousel Track (Container for all slides) --- */
+.carousel-track-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensure individual slides don't overflow */
+}
+
+.carousel-track {
+    display: flex; /* Arrange slides horizontally */
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Smooth sliding animation */
+    /* The width of this track will be set dynamically by JS based on number of slides */
+    /* transform: translateX(-[current_slide_index * 100]%); will be set by JS */
+}
+
+/* --- Individual Carousel Slide --- */
+.carousel-slide {
+    flex-shrink: 0; /* Prevent slides from shrinking */
+    width: 100%; /* Each slide takes full width of the track container */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Fallback background for slides */
+    font-size: 2em;
+    color: #333;
+    box-sizing: border-box; /* Include padding/border in element's total width/height */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the slide area, cropping if necessary */
+    display: block; /* Remove extra space below image */
+    border-radius: 8px; /* Match container border-radius */
+}
+
+/* --- Navigation Buttons (Previous/Next) --- */
+.carousel-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 1.5em;
+    line-height: 1;
+    border-radius: 50%; /* Circular buttons */
+    z-index: 10; /* Ensure buttons are above slides */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px; /* Fixed width for circular button */
+    height: 48px; /* Fixed height for circular button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-nav-button:hover,
+.carousel-nav-button:focus {
+    background-color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%) scale(1.05);
+    outline: none; /* Remove default focus outline */
+}
+
+.carousel-nav-button:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+.carousel-nav-button.prev {
+    left: 15px;
+}
+
+.carousel-nav-button.next {
+    right: 15px;
+}
+
+/* --- Pagination Dots --- */
+.carousel-pagination {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px; /* Space between dots */
+    z-index: 10; /* Ensure dots are above slides */
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-dot:hover,
+.carousel-dot:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
+    outline: none; /* Remove default focus outline */
+}
+
+.carousel-dot.active {
+    background-color: #007bff; /* Active dot color */
+    border-color: #007bff;
+    transform: scale(1.2);
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+/* --- Accessibility Enhancements --- */
+.carousel-nav-button:focus-visible,
+.carousel-dot:focus-visible {
+    outline: 2px solid #007bff; /* Visible outline for keyboard navigation */
+    outline-offset: 2px;
+}
+
+/* --- Optional: Loading/Error State for Images --- */
+.carousel-slide img:not([src]) {
+    visibility: hidden; /* Hide broken image icon */
+}
+
+.carousel-slide img::before {
+    content: "Loading image...";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    color: #666;
+    text-align: center;
+    line-height: 100%; /* Vertically center text */
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .carousel {
+        margin: 20px auto;
+        border-radius: 0; /* Full width on smaller screens */
+        box-shadow: none;
+    }
+
+    .carousel-nav-button {
+        padding: 8px 12px;
+        font-size: 1.2em;
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-nav-button.prev {
+        left: 10px;
+    }
+
+    .carousel-nav-button.next {
+        right: 10px;
+    }
+
+    .carousel-pagination {
+        bottom: 10px;
+        gap: 6px;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-nav-button {
+        display: none; /* Hide nav buttons on very small screens, rely on swipe (if implemented in JS) */
+    }
+
+    .carousel-pagination {
+        bottom: 5px;
+    }
+}
